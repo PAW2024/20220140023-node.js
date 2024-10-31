@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// Endpoint untuk mendapatkan tugas berdasarkan ID
+// Endpoint untuk mendapatkan tugas berdasarkan  ID nya
 router.get('/:id', (req, res) => {
     db.query('SELECT * FROM todos WHERE id = ?', [req.params.id], (err, results) => {
         if (err) return res.status(500).send('Internal Server Error');
