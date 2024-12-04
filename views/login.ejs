@@ -1,13 +1,43 @@
-<h1>Login</h1>
-<form action="/login" method="POST">
-    <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" id="username" name="username" required>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .form-card {
+      max-width: 400px;
+      width: 100%;
+    }
+    .logo {
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="form-card border shadow p-4 rounded">
+      <!-- Gambar Logo -->
+      <div class="text-center mb-3">
+        <img src="images/Logo.jpeg" alt="Logo" class="logo mb-4"> <!-- Path ke Logo.jpeg -->
+        <h2>Login</h2>
+        <p class="text-muted">Masukkan username dan password</p>
+      </div>
+
+      <!-- Form Login -->
+      <form action="/login" method="POST">
+        <div class="mb-3">
+          <input type="text" name="username" class="form-control" placeholder="Username" required>
+        </div>
+        <div class="mb-3">
+          <input type="password" name="password" class="form-control" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100" style="background-color: #00f2ffe2; border-color: #00bfffd1;">Login</button>
+      </form>
+      <p class="mt-3 text-center">Belum Punya Akun? <a href="/signup">Sign Up</a></p>
     </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" name="password" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Login</button>
-</form>
-<p>Belum punya akun? <a href="/signup">Daftar di sini</a>.</p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

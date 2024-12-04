@@ -1,18 +1,42 @@
 <div class="container">
     <h1>Contact Us</h1>
+<div class="container mt-5" id="contactForm">
+    <h1 class="text-center mb-4">Contact Us</h1>
     <form>
         <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" class="form-control" id="name" required>
+        <!-- Name input -->
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="firstName">First Name:</label>
+                <input type="text" class="form-control" id="firstName" placeholder="First name" required>
+            </div>
+            <div class="col-md-6">
+                <label for="lastName">Last Name:</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Last name" required>
+            </div>
         </div>
+        
+        <!-- Email input -->
         <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" class="form-control" id="email" required>
+            <label for="email">Email Address:</label>
+            <input type="email" class="form-control" id="email" placeholder="example@gmail.com" required>
         </div>
+        <!-- Message textarea -->
         <div class="form-group">
             <label for="message">Message:</label>
             <textarea class="form-control" id="message" rows="5" required></textarea>
+            <textarea class="form-control" id="message" rows="4" placeholder="Please enter your comments..." required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mt-3" style="background-color: #91ff00d8; border-color: #00ff3746;">Submit</button>
     </form>
 </div>
+</div>
+<footer class="text-center py-3">
+    © 2024 Persipa Wani Ngeyel. All Rights Reserved.
+</footer>

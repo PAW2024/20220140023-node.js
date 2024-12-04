@@ -1,13 +1,17 @@
-<h1>signup</h1>
-<form action="/signup" method="POST">
-    <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" id="username" name="username" required>
-    </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" name="password" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Login</button>
-</form>
-<p>Sudah punya akun? <a href="/login">login di sini</a>.</p>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="form-card border shadow p-4 rounded">
+        <div class="text-center mb-3">
+            <img src="/images/logo.png" alt="Logo" class="logo mb-4" style="width: 130px;">
+            <h2>Sign Up</h2>
+            <p class="text-muted">Masukkan username dan password</p>
+        </div>
+        <form action="/signup" method="POST">
+            <div class="mb-3">
+                <input type="text" name="username" class="form-control" placeholder="Username" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" style="background-color: #00fff2c4; border-color: #00ffd0b1;">Sign Up</button>
+        </form>
+        <p class="mt-3 text-center">Sudah Punya Akun? <a href="/login">Login</a></p>

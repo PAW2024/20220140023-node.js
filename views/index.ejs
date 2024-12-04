@@ -1,5 +1,59 @@
 <div class="container">
-    <h1>Welcome to the Home Page!</h1>
-    <p>This is the home page of our application.</p>
+    <h1>Wani Ngeyel !!</h1>
+    <p>Persipa Adalah Tim Kebanggaan Anda</p>
     <a href="/contact" class="btn btn-primary">Go to Contact Page</a>
+</div>
+<div class="home-page">
+    <div class="carousel">
+        <div class="carousel-item active">
+            <img src="images/Logo.jpeg" alt="Logo">
+            <div class="carousel-text">
+                <h1>Welcome <br>to Our Apparel <br>Beli Stiker</h1>
+                <a href="#" class="btn">Start Shopping</a>
+            </div>
+        </div>
+        <div class="carousel-item active">
+            <img src="images/Home.jpeg" alt="Home 24">
+            <div class="carousel-text">
+                <h1>Welcome <br>to Our Jersey <br>Supply Shop</h1>
+                <a href="#" class="btn">Start Shopping</a>
+            </div>
+        </div>
+        <div class="carousel-item active">
+            <img src="images/Awway.jpeg" alt="Awway 24">
+            <div class="carousel-text">
+                <h1>Welcome <br>to Our Awway Jersey <br>Supply Shop</h1>
+                <a href="#" class="btn">Start Shopping</a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="card" style="background-image: url('images/Awway.jpeg');">
+            <div class="card-text">
+                <h2>Awway</h2>
+                <p>Beli sekarang juga!</p>
+                <a href="#" class="btn">Shop Now</a>
+            </div>
+        </div>
+        <div class="card" style="background-image: url('images/Home.jpeg');">
+            <div class="card-text">
+                <h2>Home</h2>
+                <p>Beli sekarang juga!</p>
+                <a href="#" class="btn">Shop Now</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Persipa Wani Ngeyel. All Rights Reserved.</p>
+    </footer>
+    <script>
+        const items = document.querySelectorAll('.carousel-item');
+        let currentIndex = 0;
+        function showNextSlide() {
+            items[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % items.length;
+            items[currentIndex].classList.add('active');
+        }
+        setInterval(showNextSlide, 3000); // Ganti gambar setiap 3 detik
+    </script>
 </div>
