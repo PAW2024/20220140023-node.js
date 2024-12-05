@@ -1,0 +1,171 @@
+/* General Styling */
+.container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.home-page {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* /* Carousel Styling */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 350px; /* Kurangi tinggi carousel */
+    overflow: hidden;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+.carousel-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-item.active {
+    opacity: 1;
+}
+
+.carousel img {
+    width: 100%; /* Kurangi ukuran gambar */
+    height: 80%; /* Pertahankan aspek rasio */
+    object-fit: contain; /* Buat gambar sesuai ukuran */
+    margin: 0 auto; /* Pusatkan gambar di dalam carousel */
+    display: block;
+}
+
+.carousel-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.carousel-text h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    line-height: 1.5;
+}
+
+.carousel-text .btn {
+    margin-top: 15px;
+    background-color: #22ffe2;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-text .btn:hover {
+    background-color: #1ad3b3;
+}
+
+/* Responsive Adjustments for Smaller Screens */
+@media (max-width: 768px) {
+    .carousel {
+        height: 250px; /* Kurangi tinggi carousel lebih kecil */
+    }
+
+    .carousel img {
+        width: 70%; /* Sesuaikan ukuran gambar */
+    }
+
+    .carousel-text {
+        padding: 10px;
+        font-size: 1rem;
+    }
+}
+
+
+/* Card Styling */
+.content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #f4f4f4;
+    border-radius: 10px 10px 0 0;
+}
+
+.card h2 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 15px 0;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.card .btn {
+    background-color: #22ffe2;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.card .btn:hover {
+    background-color: #1ad3b3;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #f8f9fa;
+    color: #4a7273;
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .carousel {
+        height: 300px;
+    }
+
+    .carousel-text {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .card h2 {
+        font-size: 1rem;
+    }
+
+    .card p {
+        font-size: 0.8rem;
+    }
+}

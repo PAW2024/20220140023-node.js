@@ -1,51 +1,59 @@
 const express = require('express');
-const session = require('express-session');
-const expressLayouts = require('express-ejs-layouts');
-const todoRoutes = require('./routes/tododb');
-const authRoutes = require('./routes/authRoutes');
-const { isAuthenticated } = require('./middlewares/middleware');
-require('dotenv').config();
-
 const app = express();
-const port = process.env.PORT || 3000;
+// const todoRoutes = require('./routes/todo.js');
+const todoRoutes = require('./routes/tododb.js');
+require('dotenv').config();
+const port = process.env.PORT;
 
-// Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public')); // Folder untuk file statis (e.g., logo)
+const db = require('./database/db');
+const expressLayouts = require('express-ejs-layouts')
+const session = require('express-session');
+
+// Mengimpor middleware
+const authRoutes = require('./routes/authRoutes');
+const { isAuthenticated } = require('./middlewares/middleware.js');
+
 app.use(expressLayouts);
 
-// Konfigurasi session
-app.use(session({
-    secret: process.env.SESSION_SECRET || 'your_secret_key',
-    resave: false,
-    saveUninitialized: false,
-    cookie: { secure: false },
-}));
-
-// Set EJS sebagai view engine
+app.use(express.json());
+app.use('/todos', todoRoutes);
 app.set('view engine', 'ejs');
 
-// Routes
-app.use('/', authRoutes); // Login, Signup, Logout
-app.use('/todos', isAuthenticated, todoRoutes); // Todo routes
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
-// Halaman utama
+// Konfigurasi express-session
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'your_secret_key', // Gunakan secret key yang aman
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false } // Set ke true jika menggunakan HTTPS
+}));
+
+app.use('/', authRoutes);
+
 app.get('/', isAuthenticated, (req, res) => {
-    res.render('index', { layout: 'layouts/main-layout', user: req.session.user });
+  res.render('index',{
+    layout: 'layouts/main-layout'
+  });
 });
 
-// Halaman kontak
 app.get('/contact', isAuthenticated, (req, res) => {
-    res.render('contact', { layout: 'layouts/main-layout', user: req.session.user });
+  res.render('contact',{
+    layout: 'layouts/main-layout'
+  });
 });
 
-// 404 handler
-app.use((req, res) => {
-    res.status(404).send('404 - Page Not Found');
+app.get('/todo-view', isAuthenticated,(req, res) => {
+  db.query('SELECT * FROM todos', (err, todos) => {
+      if (err) return res.status(500).send('Internal Server Error');
+      res.render('todo', {
+          layout: 'layouts/main-layout',
+          todos: todos
+      });
+  });
 });
 
-// Start server
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}/`);
+  console.log(`Server running at http://localhost:${port}/`);
 });
